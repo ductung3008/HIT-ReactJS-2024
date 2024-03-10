@@ -16,7 +16,7 @@ window.addEventListener("scroll", handleScroll);
 const Header = () => {
   return (
     <header className="font-poppins fixed left-0 right-0 top-0 z-50 flex h-20 items-center justify-center bg-transparent transition-all duration-500">
-      <div className="flex w-full max-w-[1320px] justify-between px-3">
+      <div className="flex w-full max-w-[1320px] items-center justify-between px-3">
         <div className="px-1 text-[28px] font-medium text-white">
           <h1>
             <a href="#">SoftLand</a>
