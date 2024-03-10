@@ -24,8 +24,8 @@ const Footer = () => {
   return (
     <footer className="font-poppins pb-10 pt-20">
       <div className="m-auto max-w-[1320px] px-3">
-        <div className="flex">
-          <div className="w-1/3 px-3">
+        <div className="flex flex-col lg:flex-row">
+          <div className="px-3 lg:w-1/3">
             <h3 className="mb-[30px] text-lg font-medium">About SoftLand</h3>
             <p className="mb-4 text-sm text-[#9fa1a4]">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea
@@ -43,10 +43,10 @@ const Footer = () => {
               ))}
             </div>
           </div>
-          <div className="ml-[110px] w-7/12 px-3">
-            <div className="flex">
+          <div className="px-3 lg:ml-[110px] lg:w-7/12">
+            <div className="flex flex-col lg:flex-row">
               {footerItems.map((fi) => (
-                <div className="w-1/3">
+                <div className="lg:w-1/3">
                   <h3 className="mb-[30px] text-lg font-medium">{fi.title}</h3>
                   <ul className="mb-4">
                     {fi.items.map((i) => (
