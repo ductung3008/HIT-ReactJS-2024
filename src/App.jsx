@@ -1,12 +1,11 @@
 import React from "react";
-import { useState } from "react";
 import PostTable from "./components/PostTable/PostTable";
-import ToogleButton from "./components/ToogleButton/ToogleButton";
+import ToggleButton from "./components/ToggleButton/ToggleButton";
 
 const App = () => {
   return (
     <>
-      <ToogleButton></ToogleButton>
+      <ToggleButton></ToggleButton>
       <PostTable></PostTable>;
     </>
   );

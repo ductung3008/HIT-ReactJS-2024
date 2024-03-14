@@ -1,6 +1,6 @@
 import React from "react";
 
-const ToogleButton = () => {
+const ToogleButtonCSS = () => {
   return (
     <>
       <button className="m-4">
@@ -19,4 +19,4 @@ const ToogleButton = () => {
   );
 };
 
-export default ToogleButton;
+export default ToogleButtonCSS;
