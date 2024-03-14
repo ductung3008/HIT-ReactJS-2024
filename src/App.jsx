@@ -1,18 +1,15 @@
-import "./App.css";
-import Header from "./components/Header/Header";
-import Banner from "./components/Banner/Banner";
-import Section from "./components/Section/Section";
-import Footer from "./components/Footer/Footer";
+import React from "react";
+import { useState } from "react";
+import PostTable from "./components/PostTable/PostTable";
+import ToogleButton from "./components/ToogleButton/ToogleButton";
 
-function App() {
+const App = () => {
   return (
     <>
-      <Header></Header>
-      <Banner></Banner>
-      <Section></Section>
-      <Footer></Footer>
+      <ToogleButton></ToogleButton>
+      <PostTable></PostTable>;
     </>
   );
-}
+};
 
 export default App;
