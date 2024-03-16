@@ -10,7 +10,7 @@ const ToggleButton = () => {
 
   return (
     <button
-      className={`${isOn ? "bg-[#00bfff]" : ""} m-4 flex h-[50px] w-[100px] items-center rounded-full bg-[#c3c3c3]`}
+      className={`${isOn ? "!bg-[#00bfff]" : ""} m-4 flex h-[50px] w-[100px] items-center rounded-full bg-[#c3c3c3]`}
       onClick={handleClick}
     >
       <span
