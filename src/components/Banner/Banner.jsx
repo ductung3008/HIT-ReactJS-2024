@@ -1,12 +1,12 @@
-import Button from "../Button/Button";
+import homeBanner from "./Banner.module.scss";
 import phone_1 from "../../assets/images/phone-1.png";
 import phone_2 from "../../assets/images/phone-2.png";
 
 const Banner = () => {
   return (
-    <div className="bg-banner relative flex h-screen min-h-[880px] flex-col items-center text-white">
-      <div className="absolute bottom-[-150px] z-[1] overflow-hidden">
-        <div className="">
+    <div className={homeBanner["banner"]}>
+      <div className={homeBanner["wave"]}>
+        <div>
           <svg
             width="100%"
             height="355px"
@@ -36,24 +36,16 @@ const Banner = () => {
           </svg>
         </div>
       </div>
-      <div className="z-[2] m-auto flex h-full w-full max-w-[1320px] items-center">
-        <div className="flex w-full">
-          <div className="w-2/3 px-3 pb-4 text-left font-bold">
-            <h1 className="mb-[30px] text-6xl">
-              Promote Your App with SoftLand
-            </h1>
-            <p className="mb-12 text-lg font-normal">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </p>
-            <Button></Button>
+      <div className={homeBanner["container"]}>
+        <div className={homeBanner["content"]}>
+          <div className={homeBanner["content-left"]}>
+            <h1>Promote Your App with SoftLand</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <button>Get started</button>
           </div>
-          <div className="relative w-1/3 px-3 *:absolute *:w-[250px] *:rounded-[30px] *:shadow-[0_15px_50px_0_rgba(0,0,0,0.3)]">
-            <img src={phone_1} alt="" className="-top-1/2 left-0" />
-            <img
-              src={phone_2}
-              alt=""
-              className="-left-[2px] -top-1/2 ml-[100px] mt-[50px]"
-            />
+          <div className={homeBanner["content-right"]}>
+            <img src={phone_1} alt="" />
+            <img src={phone_2} alt="" />
           </div>
         </div>
       </div>

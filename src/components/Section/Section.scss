@@ -1,0 +1,66 @@
+@import "../../assets/scss/index.scss";
+
+.section {
+  @include flex;
+  flex-direction: column;
+  font-family: "Poppins";
+  max-width: 1320px;
+  margin: auto;
+  padding: 112px 12px;
+
+  .title {
+    @include tablet {
+      width: 100%;
+    }
+    z-index: 2;
+    width: calc(5 / 12 * 100%);
+    background: linear-gradient(to top left, #3db3c5, #274685);
+    background-clip: text;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 58px;
+    color: transparent;
+    margin: 0 0 56px 0;
+    padding: 0px 12px;
+  }
+}
+
+.content {
+  @include flex;
+  @include tablet {
+    flex-direction: column;
+  }
+
+  .item {
+    @include flex;
+    flex-direction: column;
+    padding: 0px 12px;
+    text-align: center;
+
+    .icon {
+      @include flex;
+      color: #fff;
+      width: 100px;
+      height: 100px;
+      background-color: #337aad;
+      border-radius: 9999px;
+      font-size: 36px;
+      margin: 0 0 30px 0;
+      box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .name {
+      font-size: 20px;
+      margin: 0 0 16px 0;
+      font-weight: 500;
+    }
+
+    .desc {
+      font-size: 15px;
+      margin: 0 0 16px 0;
+      font-weight: 400;
+      color: #b1b1b1;
+    }
+  }
+}
