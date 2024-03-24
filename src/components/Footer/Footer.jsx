@@ -1,3 +1,6 @@
+import React from "react";
+import homeFooter from "./Footer.module.scss";
+
 const footerItems = [
   {
     title: "Navigation",
@@ -22,52 +25,44 @@ const socials = [
 
 const Footer = () => {
   return (
-    <footer className="font-poppins pb-10 pt-20">
-      <div className="m-auto max-w-[1320px] px-3">
-        <div className="flex flex-col lg:flex-row">
-          <div className="px-3 lg:w-1/3">
-            <h3 className="mb-[30px] text-lg font-medium">About SoftLand</h3>
-            <p className="mb-4 text-sm text-[#9fa1a4]">
+    <footer className={homeFooter["footer"]}>
+      <div className={homeFooter["container"]}>
+        <div className={homeFooter["content"]}>
+          <div className={homeFooter["content-left"]}>
+            <h3>About SoftLand</h3>
+            <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea
               delectus pariatur, numquam aperiam dolore nam optio dolorem
               facilis itaque voluptatum recusandae deleniti minus animi.
             </p>
-            <div className="mb-4 flex">
-              {socials.map((s) => (
-                <a
-                  href="#"
-                  className="group mr-1 flex size-[50px] items-center justify-center rounded-full bg-[#f8f9fa] transition-all hover:bg-[#2d71a1]"
-                >
-                  <i className={`${s} group-hover:text-white`}></i>
+            <div className={homeFooter["socials"]}>
+              {socials.map((s, index) => (
+                <a href="#" key={index}>
+                  <i className={s}></i>
                 </a>
               ))}
             </div>
           </div>
-          <div className="px-3 lg:ml-[110px] lg:w-7/12">
-            <div className="flex flex-col lg:flex-row">
-              {footerItems.map((fi) => (
-                <div className="lg:w-1/3">
-                  <h3 className="mb-[30px] text-lg font-medium">{fi.title}</h3>
-                  <ul className="mb-4">
-                    {fi.items.map((i) => (
-                      <li className="mb-[10px]">
-                        <a href="#">{i}</a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+          <div className={homeFooter["content-right"]}>
+            {footerItems.map((fi, index) => (
+              <div className={homeFooter["col"]} key={index}>
+                <h3>{fi.title}</h3>
+                <ul>
+                  {fi.items.map((i, index) => (
+                    <li key={index}>
+                      <a href="#">{i}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
         <div>
-          <div className="flex flex-col items-center justify-center text-sm text-[#9fa1a4]">
+          <div className={homeFooter["copyright"]}>
             <p>© Copyright SoftLand. All Rights Reserved</p>
             <p>
-              Designed by{" "}
-              <a href="#" className="text-black">
-                Someone
-              </a>
+              Designed by <a href="#">Someone</a>
             </p>
           </div>
         </div>

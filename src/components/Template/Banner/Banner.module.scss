@@ -1,0 +1,18 @@
+@import "../../../assets/scss/index.scss";
+
+.banner {
+  @include flex;
+  height: 40vh;
+  margin-top: 72px;
+  background: linear-gradient(to bottom right, #787ff6, #7bd5f5);
+  color: #fff;
+  text-align: center;
+
+  .container {
+    width: $page-width;
+  }
+
+  p {
+    margin: 12px 0;
+  }
+}

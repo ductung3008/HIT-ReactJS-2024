@@ -1,0 +1,119 @@
+@import "../../assets/scss/index.scss";
+
+.banner {
+  @include flex;
+  flex-direction: column;
+  position: relative;
+  height: 100vh;
+  min-height: 880px;
+  color: #fff;
+  background: linear-gradient(
+      to right,
+      rgba(39, 70, 133, 0.8) 0%,
+      rgba(61, 179, 197, 0.8) 100%
+    ),
+    url(../../assets/images/banner-bg.jpg);
+
+  .wave {
+    position: absolute;
+    bottom: -150px;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .container {
+    @include flex;
+    @include tablet {
+      margin-top: 80px;
+      align-items: flex-start;
+    }
+    z-index: 2;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    max-width: 1320px;
+  }
+}
+
+.content {
+  @include tablet {
+    flex-direction: column;
+  }
+  display: flex;
+  width: 100%;
+
+  &-left {
+    @include tablet {
+      width: 100%;
+      text-align: center;
+      @include flex;
+      flex-direction: column;
+    }
+    width: calc(2 / 3 * 100%);
+    padding: 0px 12px 16px 12px;
+    text-align: left;
+    font-weight: bold;
+
+    h1 {
+      @include tablet {
+        font-size: 40px;
+      }
+      margin-bottom: 30px;
+      font-size: 60px;
+    }
+
+    p {
+      margin-bottom: 48px;
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    button {
+      display: block;
+      color: #fff;
+      border-radius: 6px;
+      border: 2px solid #fff;
+      padding: 20px 36px;
+      font-size: 16px;
+      transition: all 300ms;
+      background: none;
+      cursor: pointer;
+
+      &:hover {
+        background: #fff;
+        color: #2d71a1;
+      }
+    }
+  }
+
+  &-right {
+    @include tablet {
+      margin-top: 20px;
+      align-self: center;
+    }
+    position: relative;
+    width: calc(1 / 3 * 100%);
+    padding: 0px 12px;
+
+    img {
+      @include tablet {
+        width: 180px;
+      }
+      position: absolute;
+      width: 250px;
+      border-radius: 30px;
+      box-shadow: 0 15px 50px 0 rgba(0, 0, 0, 0.3);
+
+      &:first-child {
+        top: -50%;
+        left: 0;
+      }
+
+      &:last-child {
+        left: -2px;
+        top: -50%;
+        margin: 50px 0 0 100px;
+      }
+    }
+  }
+}

@@ -1,3 +1,6 @@
+import React from "react";
+import "./Section.scss";
+
 const sectionItems = [
   {
     iconClass: "fa-light fa-user-group text-white",
@@ -21,20 +24,16 @@ const sectionItems = [
 
 const Section = () => {
   return (
-    <div className="font-poppins m-auto flex max-w-[1320px] flex-col items-center px-3 py-[112px] *:z-[2]">
-      <h2 className="mb-14 bg-gradient-to-tl from-[#3db3c5] to-[#274685] bg-clip-text px-3 text-center text-5xl font-bold leading-[58px] text-transparent lg:w-5/12">
-        Save your time to using SoftLand
-      </h2>
-      <div className="flex flex-col items-center lg:flex-row">
-        {sectionItems.map((sectionItem) => (
-          <div className="flex flex-col items-center px-3 *:text-center">
-            <div className="mb-[30px] flex size-[100px] items-center justify-center rounded-full bg-gradient-to-tl from-[#3db3c5] to-[#274685] text-4xl shadow-[0_15px_30px_0_rgba(0,0,0,0.2)]">
+    <div className="section">
+      <h2 className="title">Save your time to using SoftLand</h2>
+      <div className="content">
+        {sectionItems.map((sectionItem, index) => (
+          <div className="item" key={index}>
+            <div className="icon">
               <i className={sectionItem.iconClass}></i>
             </div>
-            <h3 className="mb-4 text-xl font-medium">{sectionItem.title}</h3>
-            <p className="mb-4 text-sm font-normal text-[#b1b1b1]">
-              {sectionItem.description}
-            </p>
+            <h3 className="name">{sectionItem.title}</h3>
+            <p className="desc">{sectionItem.description}</p>
           </div>
         ))}
       </div>

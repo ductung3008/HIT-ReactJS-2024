@@ -1,0 +1,85 @@
+@import "../../../assets/scss/mixins";
+@import "../../../assets/scss/variables";
+
+.header {
+  @include flex(center, center);
+  padding: 12px 16px;
+  box-shadow: 1px 1px 20px #0000001a;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: #fff;
+
+  > .container {
+    @include flex(space-between, center);
+    @include tablet {
+      width: 100%;
+    }
+    width: $page-width;
+  }
+
+  img {
+    width: 140px;
+  }
+
+  nav {
+    @include flex(center, center);
+    @include tablet {
+      display: none;
+    }
+
+    a {
+      padding: 4px 12px;
+      margin: 0px 8px;
+      color: black;
+      transition: border 0.2s linear;
+      display: block;
+      height: 100%;
+
+      &.active,
+      &:hover {
+        color: #7846db;
+        border-bottom: 2px dotted #7846db;
+        margin-bottom: -2px;
+      }
+    }
+  }
+
+  .toggle-btn {
+    @include tablet {
+      display: none;
+    }
+  }
+
+  .nav-mb-icon {
+    display: none;
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  .nav-mb {
+    display: none;
+    &.active {
+      display: flex;
+      position: absolute;
+      flex-direction: column;
+      width: 100%;
+      background-color: #fff;
+      top: 99%;
+      left: 0;
+      right: 0;
+
+      a {
+        padding: 12px;
+      }
+    }
+
+    .toggle-btn-mb {
+      padding: 20px;
+      align-self: flex-end;
+    }
+  }
+}

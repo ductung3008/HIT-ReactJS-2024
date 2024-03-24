@@ -1,0 +1,41 @@
+.toggle {
+  height: 32px;
+  width: 72px;
+  display: flex;
+  align-items: center;
+  border-radius: 9999px;
+  transition: all 0.3s;
+  border: none;
+  position: relative;
+
+  &.dark {
+    background-color: #111;
+  }
+
+  .circle {
+    width: 24px;
+    height: 24px;
+    margin: 0px 4px;
+    background-color: white;
+    border-radius: 9999px;
+    transition: all 0.3s;
+
+    &.dark {
+      transform: translateX(170%);
+    }
+  }
+
+  .icon {
+    position: absolute;
+    color: #f59e0c;
+    margin: 0 16px;
+    font-size: 20px;
+    right: 0;
+
+    &.dark {
+      color: #ffd43b;
+      right: 100%;
+      left: 0;
+    }
+  }
+}

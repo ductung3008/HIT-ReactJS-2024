@@ -1,11 +1,11 @@
-import Button from "../Button/Button";
+import homeBanner from "./Banner.module.scss";
 import phone_1 from "../../assets/images/phone-1.png";
 import phone_2 from "../../assets/images/phone-2.png";
 
 const Banner = () => {
   return (
-    <div className="bg-banner font-poppins relative flex h-screen min-h-[880px] flex-col items-center text-white">
-      <div className="absolute bottom-[-180px] z-[1] overflow-hidden lg:bottom-[-150px]">
+    <div className={homeBanner["banner"]}>
+      <div className={homeBanner["wave"]}>
         <div>
           <svg
             width="100%"
@@ -36,24 +36,16 @@ const Banner = () => {
           </svg>
         </div>
       </div>
-      <div className="z-[2] m-auto mt-16 flex h-full w-full max-w-[1320px] lg:mt-0 lg:items-center">
-        <div className="flex w-full flex-col lg:flex-row">
-          <div className="flex flex-col items-center px-3 pb-4 text-center font-bold lg:w-2/3 lg:items-start lg:text-left">
-            <h1 className="my-[30px] text-[40px] font-bold leading-[48px] lg:mb-[30px] lg:mt-0 lg:text-[56px] lg:leading-[68px]">
-              Promote Your App with SoftLand
-            </h1>
-            <p className="mb-12 text-base font-normal lg:text-lg">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </p>
-            <Button></Button>
+      <div className={homeBanner["container"]}>
+        <div className={homeBanner["content"]}>
+          <div className={homeBanner["content-left"]}>
+            <h1>Promote Your App with SoftLand</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <button>Get started</button>
           </div>
-          <div className="relative mr-[15%] w-1/3 self-center px-3 *:absolute *:w-[250px] *:rounded-[30px] *:shadow-[0_15px_50px_0_rgba(0,0,0,0.3)] lg:mr-0 lg:self-auto">
-            <img src={phone_1} alt="" className="-top-1/2 left-0" />
-            <img
-              src={phone_2}
-              alt=""
-              className="-left-[2px] -top-1/2 ml-[100px] mt-[50px]"
-            />
+          <div className={homeBanner["content-right"]}>
+            <img src={phone_1} alt="" />
+            <img src={phone_2} alt="" />
           </div>
         </div>
       </div>
