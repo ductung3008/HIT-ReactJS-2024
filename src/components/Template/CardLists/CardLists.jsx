@@ -26,7 +26,6 @@ const CardLists = ({ users_data }) => {
           <div className="search-box">
             <input
               type="text"
-              size={80}
               placeholder="Thay thế dòng tiêu đề trên..."
               value={input}
               onChange={handleChange}
