@@ -1,0 +1,50 @@
+@import "../../assets/scss/index.scss";
+
+.image-list {
+  @include flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .container {
+    @include flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+
+.image {
+  margin: 12px;
+  position: relative;
+  width: 20%;
+  max-width: 20%;
+  height: 250px;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  &:hover {
+    .trash-can {
+      display: flex;
+    }
+  }
+
+  .trash-can {
+    @include flex;
+    display: none;
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    background-color: red;
+    border-radius: 9999px;
+    top: -12px;
+    right: -12px;
+    cursor: pointer;
+  }
+}
