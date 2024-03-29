@@ -7,6 +7,9 @@ const ImageList = () => {
   const [imageLists, setImageLists] = useState([]);
   const [pageNum, setPageNum] = useState(1);
   const [isShow, setIsShow] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [imageID, setImageID] = useState(null);
+  const [imageIndex, setImageIndex] = useState(null);
   const listRef = useRef(null);
 
   const loadImage = () => {
@@ -27,11 +30,20 @@ const ImageList = () => {
     listRef.current?.lastElementChild?.scrollIntoView({ behavior: "smooth" });
   }, [imageLists]);
 
+  const toggleDeleteDialog = (id, index) => {
+    setIsOpen(!isOpen);
+    setImageID(id);
+    setImageIndex(index);
+  };
+
   const deleteImage = (id, index) => {
     imageLists[index].user &&
       URL.revokeObjectURL(imageLists[index].download_url);
     const newImageList = imageLists.filter((image) => image.id !== id);
     setImageLists(newImageList);
+    setIsOpen(false);
+    setImageID(null);
+    setImageIndex(null);
   };
 
   const showAddButton = () => {
@@ -59,7 +71,7 @@ const ImageList = () => {
               <img src={image.download_url} alt="" />
               <span
                 className="trash-can"
-                onClick={() => deleteImage(image.id, index)}
+                onClick={() => toggleDeleteDialog(image.id, index)}
               >
                 <i className="fa-light fa-trash-can"></i>
               </span>
@@ -95,6 +107,38 @@ const ImageList = () => {
           </>
         </div>
       </div>
+      <>
+        {isOpen && (
+          <div className="delete-dialog">
+            <div className="delete-container">
+              <div className="warning-icon">
+                <i className="fa-regular fa-triangle-exclamation"></i>
+              </div>
+              <div className="content">
+                <h2 className="title">Are you sure?</h2>
+                <p className="desc">
+                  This will delete this image permanently. <br />
+                  You cannot undo this action.
+                </p>
+              </div>
+              <div className="button-wrapper">
+                <Button
+                  Content="Delete"
+                  backgroundColor="red"
+                  textColor="white"
+                  onClick={() => deleteImage(imageID, imageIndex)}
+                ></Button>
+                <Button
+                  Content="Cancel"
+                  backgroundColor="white"
+                  textColor="black"
+                  onClick={() => setIsOpen(false)}
+                ></Button>
+              </div>
+            </div>
+          </div>
+        )}
+      </>
     </>
   );
 };
