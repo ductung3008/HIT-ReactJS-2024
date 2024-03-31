@@ -4,7 +4,7 @@
   @include flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: 20px;
+  margin: 20px 0;
 
   .container {
     @include flex;
@@ -66,7 +66,7 @@
   background-color: rgba(0, 0, 0, 0.4);
 
   .delete-container {
-    @include flex($jc: flex-start);
+    @include flex($jc: space-between);
     @include tablet {
       min-height: 400px;
     }
@@ -96,6 +96,7 @@
     }
 
     .button-wrapper {
+      @include flex;
       margin-top: 20px;
       button {
         border: 1px solid #ccc;
