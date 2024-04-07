@@ -1,0 +1,86 @@
+@import "../../assets/scss/index.scss";
+
+body {
+  background: linear-gradient(90deg, #27ee52, #6473ff);
+}
+
+.container {
+  @include flex;
+  margin: 128px 0;
+}
+
+.to-do-app {
+  @include flex($jc: flex-start);
+  flex-direction: column;
+  width: 520px;
+  min-height: 600px;
+  background: #161a2b;
+  border-radius: 12px;
+  color: #fff;
+  padding-bottom: 32px;
+
+  .title {
+    margin: 32px 0;
+    font-size: 24px;
+  }
+
+  .form {
+    margin: 0 0 32px 0;
+
+    input {
+      color: #fff;
+      background: transparent;
+      border: 2px solid #5a52ce;
+      padding: 14px 32px 14px 16px;
+      width: 320px;
+      outline: none;
+      border-radius: 4px 0 0 4px;
+
+      &::placeholder {
+        color: #fff;
+      }
+    }
+
+    button {
+      background: linear-gradient(90deg, #5d0cff, #9b00fa);
+      outline: none;
+      border: none;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      padding: 16px;
+      color: #fff;
+    }
+  }
+
+  .to-do {
+    @include flex($jc: space-between);
+    margin: 4px auto;
+    padding: 16px;
+    color: #fff;
+    width: 90%;
+    border-radius: 4px;
+
+    &:nth-child(4n) {
+      background: linear-gradient(90deg, #ff7614, #ff5411);
+    }
+
+    &:nth-child(4n + 1) {
+      background: linear-gradient(90deg, #5d0cff, #9b00fa);
+    }
+
+    &:nth-child(4n + 2) {
+      background: linear-gradient(90deg, #ff0cf1, #fa0087);
+    }
+
+    &:nth-child(4n + 3) {
+      background: linear-gradient(90deg, #149fff, #117aff);
+    }
+
+    .icons {
+      svg {
+        margin: 0 2px;
+        cursor: pointer;
+      }
+    }
+  }
+}
