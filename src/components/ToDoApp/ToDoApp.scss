@@ -7,10 +7,17 @@ body {
 .container {
   @include flex;
   margin: 128px 0;
+  @include mobile {
+    margin: 0;
+  }
 }
 
 .to-do-app {
   @include flex($jc: flex-start);
+  @include mobile {
+    min-height: 100vh;
+    border-radius: 0;
+  }
   flex-direction: column;
   width: 520px;
   min-height: 600px;
@@ -28,6 +35,12 @@ body {
     margin: 0 0 32px 0;
 
     input {
+      @include tablet {
+        width: 280px;
+      }
+      @include mobile {
+        width: 240px;
+      }
       color: #fff;
       background: transparent;
       border: 2px solid #5a52ce;
