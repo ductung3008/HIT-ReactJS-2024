@@ -1,12 +1,8 @@
 import React from "react";
-import ImageList from "./components/ImageList/ImageList";
+import ToDoApp from "./components/ToDoApp/ToDoApp";
 
 const App = () => {
-  return (
-    <>
-      <ImageList></ImageList>
-    </>
-  );
+  return <ToDoApp />;
 };
 
 export default App;
