@@ -1,0 +1,515 @@
+@import "../../styles/index.scss";
+$primary-text-color: #bcbcbc;
+$primary-border-color: #e8e8e8;
+$error-color: #be4b49;
+
+.edit-profile {
+  @include flex;
+  height: 100vh;
+  min-width: 100vw;
+  width: max-content;
+  background-color: #ced9f7;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 760px;
+  width: 1074px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  @include tablet {
+    width: 100vw;
+    border-radius: 0;
+    min-height: 100vh;
+    box-shadow: none;
+  }
+}
+
+.edit-header {
+  @include flex($jc: space-between);
+  padding: 0 40px;
+  height: 60px;
+  border-bottom: 2px solid $primary-border-color;
+  color: $primary-text-color;
+  background-color: #fff;
+  border-radius: 20px 20px 0 0;
+
+  @include tablet {
+    padding: 0 12px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+  }
+
+  .breadcrumb {
+    @include flex;
+    gap: 12px;
+    cursor: pointer;
+
+    @include tablet {
+      opacity: 0;
+    }
+
+    i {
+      font-size: 14px;
+    }
+  }
+
+  .search-box {
+    width: 370px;
+    position: relative;
+
+    @include mobile {
+      display: none;
+    }
+
+    i {
+      @include flex;
+      position: absolute;
+      height: 100%;
+      aspect-ratio: 1/1;
+      font-size: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 12px 12px 36px;
+      border: 2px solid $primary-border-color;
+      border-radius: 6px;
+      outline: none;
+      font-size: 14px;
+
+      &::placeholder {
+        color: $primary-text-color;
+      }
+    }
+  }
+
+  .header-right {
+    @include flex;
+    gap: 16px;
+    height: 100%;
+
+    .noti {
+      color: #999;
+      font-size: 20px;
+      position: relative;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background-color: #000;
+        border-radius: 9999px;
+        top: 4px;
+        right: 0;
+      }
+    }
+
+    .user {
+      cursor: pointer;
+      height: 100%;
+
+      img {
+        height: 100%;
+      }
+    }
+  }
+}
+
+.edit-container {
+  display: flex;
+  height: 100%;
+
+  @include mobile {
+    margin-top: 60px;
+  }
+}
+
+.nav-mb {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 10000;
+
+  @include tablet {
+    display: block;
+  }
+}
+
+.side-bar {
+  width: 244px;
+  padding: 20px 0 0 36px;
+  border-right: 2px solid $primary-border-color;
+  color: $primary-text-color;
+  background-color: #fff;
+  border-radius: 0 0 0 20px;
+
+  @include tablet {
+    position: fixed;
+    height: 100vh;
+    z-index: 20;
+    transition: left 0.5s;
+    padding: 44px 0 0 36px;
+    left: -100%;
+  }
+
+  .user {
+    position: relative;
+    img {
+      width: 130px;
+      height: 130px;
+    }
+    i {
+      @include flex;
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      background-color: #50586b;
+      color: #fff;
+      border-radius: 9999px;
+      font-size: 14px;
+      left: 88px;
+      top: 80px;
+      cursor: pointer;
+    }
+  }
+
+  li {
+    padding: 6px 0 6px 12px;
+
+    a {
+      @include flex($jc: flex-start);
+      width: 100%;
+      padding: 8px;
+      position: relative;
+      color: $primary-text-color;
+    }
+
+    i {
+      @include flex;
+      width: 20px;
+      height: 20px;
+      margin-right: 20px;
+    }
+
+    &.tab-active a {
+      color: #000;
+      font-weight: bold;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 0;
+        height: 100%;
+        position: absolute;
+        border-right: 3px solid #4e5669;
+        border-radius: 4px;
+        right: -2px;
+      }
+    }
+  }
+
+  i {
+    font-size: 20px;
+  }
+
+  &.nav-open {
+    left: 0;
+  }
+}
+
+.edit-content {
+  flex: 1;
+  padding: 40px 52px 40px 44px;
+
+  @include tablet {
+    padding: 40px 44px;
+    margin-top: 44px;
+  }
+
+  h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.edit-form {
+  @include flex($jc: space-between, $at: flex-start);
+  gap: 50px;
+
+  @include mobile {
+    display: block;
+  }
+
+  .edit-col {
+    width: 100%;
+
+    .input-wrapper {
+      @include flex($at: flex-start);
+      flex-direction: column;
+      margin-bottom: 20px;
+      position: relative;
+
+      @include mobile {
+        margin-bottom: 12px !important;
+      }
+
+      &:nth-child(2) {
+        margin-bottom: 40px;
+      }
+
+      label {
+        color: $primary-text-color;
+        margin-bottom: 4px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 2px solid $primary-border-color;
+      }
+
+      select {
+        background-color: #fff;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-image: url(../../assets/images/arrow-down.png);
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+      }
+
+      span i {
+        display: none;
+      }
+    }
+
+    .birthday-input {
+      @include flex($jc: space-between, $at: flex-start);
+      width: 100%;
+      gap: 16px;
+
+      .birthday-select {
+        &:first-child {
+          width: 40%;
+        }
+        &:nth-child(2) {
+          width: 25%;
+        }
+        &:last-child {
+          width: 35%;
+        }
+      }
+    }
+
+    .new-pass-input {
+      margin-bottom: 16px !important;
+
+      p {
+        color: $primary-text-color;
+        opacity: 0.5;
+        font-size: 12px;
+        margin: 4px 0;
+      }
+
+      &.error-input {
+        .error-icon {
+          bottom: 36px;
+        }
+      }
+    }
+  }
+
+  .input-switch {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    position: relative;
+
+    &:nth-child(4) {
+      margin-top: 40px;
+      margin-bottom: 12px;
+
+      @include mobile {
+        margin-top: 20px;
+      }
+    }
+
+    .switch-wrapper {
+      width: 40px;
+      height: 24px;
+    }
+
+    input {
+      cursor: pointer;
+      height: 100%;
+      opacity: 0;
+      position: relative;
+      z-index: 10;
+      &:checked + .slider {
+        background-color: #50586b;
+
+        &::before {
+          transform: translateX(16px);
+        }
+      }
+    }
+
+    .slider {
+      position: absolute;
+      right: 0;
+      width: 40px;
+      height: 24px;
+      background-color: #d3d3d3;
+      transition: all 0.4s;
+      border-radius: 9999px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        top: 2px;
+        left: 2px;
+        background-color: white;
+        transition: all 0.4s;
+        border-radius: 9999px;
+      }
+    }
+  }
+
+  .btn {
+    @include flex($jc: flex-start);
+    @include mobile {
+      justify-content: center;
+    }
+
+    button {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 8px;
+      background-color: #50586b;
+      border: 1px solid #50586b;
+      color: #fff;
+      cursor: pointer;
+      margin: 10px 0;
+    }
+  }
+}
+
+.error-input {
+  input {
+    border: 2px solid $error-color !important;
+
+    &:focus {
+      & ~ .error-msg {
+        display: block;
+      }
+      & + .error-icon {
+        display: none;
+      }
+    }
+  }
+
+  .error-icon {
+    @include flex;
+    color: #fff;
+    position: absolute;
+    right: 10px;
+    bottom: 12px;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    background-color: $error-color;
+    border-radius: 9999px;
+
+    i {
+      display: block !important;
+    }
+  }
+
+  .error-msg {
+    display: none;
+    z-index: 10;
+    color: #fff;
+    position: absolute;
+    background-color: $error-color;
+    height: fit-content;
+    line-height: 20px;
+    width: max-content;
+    max-width: 300px;
+    padding: 12px;
+    left: 90%;
+    top: -28px;
+    border-radius: 2px;
+    font-size: 14px;
+    max-width: 300px;
+    text-align: justify;
+
+    @include mobile {
+      position: static;
+      background-color: #fff;
+      color: $error-color;
+      padding: 0;
+      margin: 4px;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-top: 12px solid $error-color;
+      bottom: -8px;
+
+      @include mobile {
+        content: none;
+      }
+    }
+  }
+
+  input[type="password"] {
+    & ~ .error-msg {
+      right: 0 !important;
+      left: calc(100% + 8px);
+      top: 22px;
+
+      &::before {
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-right: 12px solid $error-color;
+        left: -20px;
+        top: 8px;
+      }
+    }
+  }
+}
