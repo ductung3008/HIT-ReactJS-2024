@@ -1,8 +1,10 @@
-@import "../../assets/scss/index.scss";
-
-button {
-  border: 0;
-  padding: 12px 20px;
+.btn {
+  color: #fff;
+  background-color: #0d6efd;
+  border: none;
+  padding: 16px 20px;
+  border-radius: 4px;
   font-size: 14px;
+  letter-spacing: 1px;
   cursor: pointer;
 }

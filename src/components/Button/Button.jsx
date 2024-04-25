@@ -1,14 +1,10 @@
 import React from "react";
 import "./Button.scss";
 
-const Button = ({ Content, onClick, backgroundColor, textColor }) => {
+const Button = ({ title, handleClick }) => {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      style={{ backgroundColor: backgroundColor, color: textColor }}
-    >
-      {Content}
+    <button className="btn" onClick={handleClick}>
+      {title}
     </button>
   );
 };
