@@ -1,0 +1,112 @@
+@import "../../styles/index.scss";
+
+.login {
+  @include flex;
+  background-color: #7dbb5c;
+  height: 100vh;
+  width: 100vw;
+
+  form {
+    @include flex($jc: flex-start);
+    flex-direction: column;
+    gap: 40px;
+    width: 540px;
+    min-height: 432px;
+    padding: 66px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    @include tablet {
+      padding: 40px;
+      gap: 32px;
+    }
+
+    @include mobile {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    div {
+      width: 100%;
+      position: relative;
+    }
+
+    input {
+      width: 100%;
+      flex: 1;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border: 0;
+      font-size: 20px;
+
+      &.error-input {
+        border: 2px solid red;
+
+        &:focus {
+          outline: red;
+        }
+      }
+    }
+
+    button {
+      width: 100%;
+      padding: 24px;
+      color: #fff;
+      font-size: 20px;
+      background-color: #53af50;
+      border: 0;
+      margin-bottom: -16px;
+    }
+
+    p {
+      color: #ccc;
+    }
+
+    a {
+      color: #53af50;
+    }
+  }
+
+  .error-msg {
+    @include flex($jc: flex-start);
+    padding: 12px 20px;
+    position: absolute;
+    background-color: #be4b49;
+    line-height: 28px;
+    text-align: justify;
+    color: #fff;
+    left: 104%;
+    min-height: 100%;
+    height: max-content;
+    top: 0;
+    width: 400px;
+    border-radius: 4px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-right: 20px solid #be4b49;
+      left: -16px;
+      top: 6px;
+    }
+
+    @include tablet {
+      position: relative;
+      left: 0;
+      background-color: white;
+      color: #be4b49;
+      width: 100%;
+      padding: 0;
+      min-height: 28px;
+      margin-top: 8px;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+}

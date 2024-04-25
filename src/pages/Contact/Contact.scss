@@ -1,0 +1,26 @@
+@import "../../styles/index.scss";
+
+.contact {
+  .form {
+    input {
+      width: 40%;
+      padding: 16px;
+      border: none;
+      background-color: #fff;
+      position: relative;
+      z-index: 10;
+      border-radius: 4px 0 0 4px;
+    }
+
+    .btn {
+      background-color: $primary-color;
+      color: #fff;
+      padding: 16px 20px;
+      cursor: pointer;
+      letter-spacing: 1px;
+      border: 0;
+      border-radius: 0 4px 4px 0;
+      font-size: 14px;
+    }
+  }
+}
