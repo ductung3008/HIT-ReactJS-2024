@@ -9,7 +9,7 @@ import { registerValidate } from "../../utils/registerValidate";
 const Register = () => {
   const navigate = useNavigate();
   const handleClose = () => {
-    navigate("/");
+    navigate(-1);
   };
   return (
     <div className="register">
