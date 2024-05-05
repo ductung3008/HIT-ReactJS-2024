@@ -1,42 +1,49 @@
-@import "../../styles/index.scss";
+@import "../../styles/mixins";
+@import "../../styles/variables";
 
 .banner {
-  @include flex;
-  height: 85vh;
-  text-align: center;
-  background: url("../../assets/images/bg-app.jpg") center no-repeat;
+  padding: 230px 0;
+  width: $page-width;
+  margin: 0 auto;
   position: relative;
-
-  .container {
-    width: $page-width;
-    position: relative;
-    z-index: 10;
-
-    h1 {
-      font-size: 48px;
-      color: #fff;
-      margin: 0 auto 16px;
-      width: 70%;
-      @include mobile {
-        font-size: 32px;
-      }
-    }
+  .title {
+    @include flex;
+    font-family: "Helvetica Neue", Helvetica, Arial;
+    width: 640.994px;
+    height: 182.857px;
+    flex-direction: column;
+    color: #212353;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 110%;
   }
-  &::after {
-    content: "";
+
+  .desc {
+    width: 377.64px;
+    height: 119.255px;
+    color: #4b5d68;
+    font-family: Avenir;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 160%;
+    margin: 50px 0;
+  }
+
+  .btn {
+    font-family: Avenir;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .img {
     position: absolute;
-    top: 0;
-    left: 0;
+    width: 759.255px;
+    height: 401.491px;
+    bottom: 36px;
     right: 0;
-    bottom: 0;
-    background-color: #1c375e;
-    opacity: 0.5;
-  }
-}
-
-.sign-up-banner {
-  height: 50vh;
-  .container h1 {
-    font-size: 32px;
+    z-index: -1;
+    img {
+      width: 100%;
+    }
   }
 }

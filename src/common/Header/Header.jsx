@@ -1,47 +1,88 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Button from "../../components/Button/Button";
+import React, { useEffect, useRef } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./Header.scss";
-import userAvatar from "../../assets/images/user-avatar.jpg";
+import Button from "../../components/Button/Button";
 
 const Header = () => {
   const navigate = useNavigate();
-  const access_token = localStorage.getItem("access_token");
+  const location = useLocation();
+  const headerContainer = useRef();
+  const isLogin = localStorage.getItem("access_token") ? true : false;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 0) {
+        headerContainer.current.style.padding = "20px 0";
+      } else {
+        headerContainer.current.style.padding = "48px 0";
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleLogin = () => {
     navigate("/login");
   };
 
-  const handleLogout = () => {
-    navigate("/");
-    localStorage.clear();
-  };
+  const hideButton = location.pathname === "/login";
 
   return (
-    <header className="header">
-      <div className="container">
-        <Link to="/">
-          <h1>Start Bootstrap</h1>
-        </Link>
-        {!access_token ? (
-          <Button title="Login" handleClick={handleLogin} />
-        ) : (
-          <div className="user">
-            <div className="avatar">
-              <img src={userAvatar} alt="" />
-            </div>
-            <p>Hi, I'm Trang</p>
-            <div className="dropdown">
-              <ul>
-                <li>
-                  <Link to="/about-us">About us</Link>
-                </li>
-                <li>
-                  <Link to="/contact">Contact</Link>
-                </li>
-                <li onClick={handleLogout}>Logout</li>
-              </ul>
-            </div>
+    <header>
+      <div className="container" ref={headerContainer}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="49"
+          height="36"
+          viewBox="0 0 49 36"
+          fill="none"
+        >
+          <rect
+            y="15.8323"
+            width="19.8758"
+            height="19.8758"
+            rx="9.93789"
+            fill="#9C69E2"
+          />
+          <rect
+            x="28.8203"
+            y="0.925415"
+            width="19.8758"
+            height="34.7826"
+            rx="9.93789"
+            fill="#F063B8"
+          />
+        </svg>
+        {!hideButton && !isLogin && (
+          <Button
+            title={"Sign In"}
+            width="208.696px"
+            height={"59.627px"}
+            handleClick={handleLogin}
+          />
+        )}
+        {isLogin && (
+          <div>
+            <Button
+              title={"Profile"}
+              width="208.696px"
+              height={"59.627px"}
+              handleClick={() => navigate("/profile")}
+            />
+            <Button
+              title={"Logout"}
+              width="208.696px"
+              height={"59.627px"}
+              handleClick={() => {
+                localStorage.removeItem("access_token");
+                alert("Logout successful. See you again!");
+                navigate("/");
+              }}
+            />
           </div>
         )}
       </div>

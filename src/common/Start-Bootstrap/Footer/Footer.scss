@@ -1,0 +1,49 @@
+@import "../../styles/index.scss";
+
+.footer {
+  @include flex;
+  background-color: #fff;
+  padding: 48px 0 32px;
+
+  .container {
+    @include flex($jc: space-between);
+    width: $page-width;
+    @include mobile {
+      flex-direction: column;
+    }
+  }
+
+  .left {
+    ul {
+      @include flex($jc: space-between);
+      li {
+        margin: 0 16px;
+        @include mobile {
+          margin: 0;
+        }
+        a {
+          text-decoration: underline;
+          color: $primary-color;
+        }
+      }
+    }
+    .copyright {
+      margin: 16px 0;
+      padding: 0 16px;
+      font-weight: 100;
+      color: #656769;
+      @include mobile {
+        padding: 0;
+      }
+    }
+  }
+
+  .right {
+    i {
+      font-size: 24px;
+      color: $primary-color;
+      cursor: pointer;
+      padding: 0 16px;
+    }
+  }
+}

@@ -2,7 +2,7 @@ import * as Yup from "yup";
 
 export const loginValidate = () =>
   Yup.object({
-    email: Yup.string().required("Email is not empty").email("Must be email"),
+    username: Yup.string().required("Username is not empty"),
     password: Yup.string().required("Password is not empty"),
   });
 

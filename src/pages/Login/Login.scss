@@ -1,67 +1,41 @@
-@import "../../styles/index.scss";
+@import "../../styles/mixins";
 
-.login {
+.auth-form {
   @include flex;
-  background-color: #fff;
-  width: 100vw;
   height: 100vh;
-
-  .form {
-    width: 25%;
-    padding: 32px 48px;
-    background-color: #fff;
-    box-shadow: 0 0 12px #0000001a;
-    border-radius: 4px;
-    position: relative;
-    @include tablet {
-      width: 60%;
-    }
-    @include mobile {
-      width: 80%;
-    }
-
-    .title {
-      text-align: center;
-      margin: 12px 0;
-    }
-
-    input {
-      width: 100%;
-      padding: 16px;
-      border: none;
-      background-color: #f2f2f2;
-      margin: 16px 0;
-    }
-
-    .btn {
-      width: 100%;
-      margin: 16px 0;
-    }
-
-    .close {
-      @include flex;
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      background-color: #000;
-      color: #fff;
-      border-radius: 9999px;
-      cursor: pointer;
-      transition: all 0.3s;
-      font-size: 12px;
-      right: -16px;
-      top: -16px;
-
-      &:hover {
-        background-color: red;
-      }
-    }
-    p {
-      text-align: center;
-    }
-
-    .error-msg {
-      color: red;
-    }
+  font-family: Inter;
+  flex-direction: column;
+  .title {
+    color: #000;
+    font-size: 64px;
+    line-height: 160%;
+    letter-spacing: 0.32px;
+    font-weight: 400;
   }
+
+  label {
+    color: #000;
+    line-height: 160%;
+    letter-spacing: 0.08px;
+  }
+
+  input {
+    width: 407px;
+    height: 57px;
+    border-radius: 6px;
+    border: 1px solid #000;
+    margin-top: 12px;
+    background: #fdfdfd;
+    margin-bottom: 8px;
+    padding: 0 16px;
+  }
+
+  .btn {
+    margin: 46px 0;
+  }
+}
+
+.error-msg {
+  color: red;
+  margin: 4px 0;
 }
