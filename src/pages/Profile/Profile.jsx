@@ -235,10 +235,10 @@ const Profile = () => {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Tags</th>
-                <th>Actions</th>
+                <th style={{ width: "321px" }}>Title</th>
+                <th style={{ width: "358px" }}>Description</th>
+                <th style={{ width: "313px" }}>Tags</th>
+                <th style={{ width: "237px" }}>Actions</th>
               </tr>
             </thead>
             <tbody className="tbody-padding" border={0}>
@@ -254,10 +254,10 @@ const Profile = () => {
               {showPosts.map((post) => (
                 <tr key={post.id}>
                   <td>{post.id}</td>
-                  <td style={{ width: "321px" }}>{post.title}</td>
-                  <td style={{ width: "358px" }}>{post.description}</td>
-                  <td style={{ width: "313px" }}>{post.tags}</td>
-                  <td className="actions" style={{ width: "237px" }}>
+                  <td>{post.title}</td>
+                  <td>{post.description}</td>
+                  <td>{post.tags}</td>
+                  <td className="actions">
                     <img
                       src={editIcon}
                       alt=""

@@ -47,7 +47,7 @@ const Login = () => {
           <div>
             <label htmlFor="password">Password</label>
             <br />
-            <Field type="text" name="password" id="password"></Field>
+            <Field type="password" name="password" id="password"></Field>
             <ErrorMessage
               component="div"
               name="password"
