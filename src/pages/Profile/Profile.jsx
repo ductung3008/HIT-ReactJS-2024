@@ -45,19 +45,23 @@ const Profile = () => {
 
   const handleAdd = (e) => {
     e.preventDefault();
-    setPostsList((prevList) => {
-      const newList = [...prevList, post];
-      const postsJSON = JSON.stringify(newList);
-      localStorage.setItem("posts", postsJSON);
-      return newList;
-    });
+    const newList = [...postsList, post];
+    setPostsList(newList);
+    setQueryPosts(newList);
+    setShowPosts(newList);
+    const postsJSON = JSON.stringify(newList);
+    localStorage.setItem("posts", postsJSON);
     setPost(newPost);
     setId((id) => id + 1);
+    setTitle("");
     setIsOpenModal(false);
   };
 
   const handleDelete = (id) => {
-    setPostsList(postsList.filter((post) => post.id !== id));
+    const newList = postsList.filter((post) => post.id !== id);
+    setPostsList(newList);
+    setQueryPosts(newList);
+    setShowPosts(newList);
   };
 
   const handleEdit = (e) => {
@@ -66,17 +70,17 @@ const Profile = () => {
       post.id === editPost.id ? { ...editPost } : post,
     );
     setPostsList(newList);
+    setQueryPosts(newList);
+    setShowPosts(newList);
     setEditPost(newPost);
     setIsEdit(false);
     setIsOpenModal(false);
   };
 
-  const handleSearch = (e) => {
-    const value = e.target.value;
-    setTitle(value);
-    const queryList = postsList.filter((post) => post.title.includes(value));
+  useEffect(() => {
+    const queryList = postsList.filter((post) => post.title.includes(title));
     setQueryPosts(queryList);
-  };
+  }, [title]);
 
   useEffect(() => {
     const sortedList = [...queryPosts];
@@ -186,7 +190,7 @@ const Profile = () => {
                 type="text"
                 placeholder="Title"
                 value={title}
-                onChange={handleSearch}
+                onChange={(e) => setTitle(e.target.value)}
               />
             </div>
             <div className="dropdown">

@@ -30,6 +30,7 @@
     flex: 1;
     padding: 128px 120px;
     height: 100vh;
+    position: relative;
 
     .header {
       @include flex($jc: space-between);
@@ -150,7 +151,8 @@
   @include flex;
   gap: 20px;
   position: absolute;
-  right: 500px;
+  right: 400px;
+  bottom: 120px;
   li {
     @include flex;
     cursor: pointer;
