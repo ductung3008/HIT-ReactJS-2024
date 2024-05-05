@@ -1,0 +1,42 @@
+@import "../../styles/index.scss";
+
+.banner {
+  @include flex;
+  height: 85vh;
+  text-align: center;
+  background: url("../../assets/images/bg-app.jpg") center no-repeat;
+  position: relative;
+
+  .container {
+    width: $page-width;
+    position: relative;
+    z-index: 10;
+
+    h1 {
+      font-size: 48px;
+      color: #fff;
+      margin: 0 auto 16px;
+      width: 70%;
+      @include mobile {
+        font-size: 32px;
+      }
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #1c375e;
+    opacity: 0.5;
+  }
+}
+
+.sign-up-banner {
+  height: 50vh;
+  .container h1 {
+    font-size: 32px;
+  }
+}

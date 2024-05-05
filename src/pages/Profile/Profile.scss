@@ -1,0 +1,165 @@
+@import "../../styles/mixins";
+
+.profile {
+  @include flex($jc: flex-start, $at: flex-start);
+  width: 100vw;
+  .sidebar {
+    width: 320px;
+    height: 100vh;
+    background-color: #d9d9d9;
+    padding: 30px 32px;
+    .logo {
+      margin-left: 70px;
+      margin-bottom: 40px;
+    }
+    .nav {
+      @include flex($jc: flex-start, $at: flex-start);
+      gap: 10px;
+      flex-direction: column;
+      a {
+        color: #212353;
+        font-family: Inter;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 160%;
+        letter-spacing: 0.1px;
+      }
+    }
+  }
+  .container {
+    flex: 1;
+    padding: 128px 120px;
+    height: 100vh;
+
+    .header {
+      @include flex($jc: space-between);
+    }
+
+    .opt {
+      @include flex;
+      gap: 40px;
+
+      input,
+      button {
+        @include flex($jc: space-between);
+        width: 368px;
+        height: 49px;
+        border-radius: 6px;
+        border: 1px solid #000;
+        background: #fdfdfd;
+        padding: 0 20px;
+        overflow: hidden;
+      }
+
+      button {
+        padding: 0px;
+      }
+
+      .dropdown {
+        div {
+          position: absolute;
+          border-radius: 0 0 6px 6px;
+          border: 1px solid #000;
+          border-top: 0px solid #000;
+          overflow: hidden;
+          //   display: none;
+        }
+        li {
+          @include flex($jc: space-between);
+          width: 368px;
+          height: 49px;
+          background: #fdfdfd;
+          padding: 0 20px;
+          font-size: 14px;
+          &:hover {
+            background-color: #ccc;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .content {
+    margin-top: 34px;
+    width: 100%;
+    table {
+      width: 100%;
+      text-align: center;
+      background-color: #d9d9d9;
+      border-collapse: collapse;
+      tr {
+        height: 49px;
+      }
+      .actions {
+        img {
+          margin: 0px 20px;
+          width: 24px;
+          height: 24px;
+          cursor: pointer;
+        }
+      }
+    }
+    .tbody-padding {
+      background-color: #fff;
+      border: none;
+      tr {
+        height: 10px;
+      }
+    }
+  }
+}
+
+.add-new {
+  @include flex;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($color: #000000, $alpha: 0.3);
+
+  .modal {
+    opacity: 1;
+    width: 500px;
+    background-color: #fff;
+    height: max-content;
+    padding: 40px;
+    border-radius: 8px;
+    form {
+      @include flex($at: flex-start);
+      flex-direction: column;
+      gap: 20px;
+      div,
+      input {
+        width: 100%;
+      }
+      input {
+        padding: 8px 12px;
+        margin-top: 4px;
+      }
+      .btn {
+        align-self: center;
+      }
+    }
+  }
+}
+
+.pagination {
+  @include flex;
+  gap: 20px;
+  position: absolute;
+  right: 500px;
+  li {
+    @include flex;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 9999px;
+    background-color: #fff;
+    &:hover {
+      background-color: #ccc;
+    }
+  }
+}

@@ -1,49 +1,97 @@
-@import "../../styles/index.scss";
+@import "../../styles/mixins";
 
-.footer {
-  @include flex;
-  background-color: #fff;
-  padding: 48px 0 32px;
-
+footer {
+  border-top: 2px solid rgba(156, 105, 226, 0.2);
+  width: 1600px;
+  margin: 88px auto 0px;
+  padding: 96px 240px;
+  font-family: Avenir;
   .container {
-    @include flex($jc: space-between);
-    width: $page-width;
-    @include mobile {
+    @include flex($jc: space-between, $at: flex-start);
+  }
+
+  .col-left {
+    width: 42%;
+
+    .logo {
+      @include flex($jc: flex-start);
+      gap: 20px;
+      .logo-name {
+        color: #212353;
+        font-size: 20px;
+        font-weight: 900;
+        line-height: 160%;
+      }
+    }
+
+    p {
+      color: #212353;
+      font-weight: 500;
+      line-height: 180%;
+      letter-spacing: 0.16px;
+    }
+
+    .address {
+      margin: 66px 0 10px;
+    }
+
+    .contact p {
+      font-weight: 400;
+    }
+  }
+
+  .col-right {
+    @include flex($jc: flex-start, $at: flex-start);
+    flex: 1;
+    .col-3 {
+      width: 33%;
+      @include flex($jc: flex-start, $at: flex-start);
       flex-direction: column;
+      & > div:not(last-child):not(.title) {
+        @include flex($jc: flex-start, $at: flex-start);
+        flex-direction: column;
+        gap: 28px;
+        margin-top: 12px;
+      }
+    }
+    .title {
+      color: #212353;
+      font-weight: 900;
+      line-height: 160%;
+      margin-bottom: 30px;
+    }
+    .sm > div:nth-child(2) {
+      flex-direction: row !important;
+      gap: 14px !important;
+      margin: 0 !important;
+    }
+    .sm-wrapper {
+      div {
+        position: relative;
+        width: 50px;
+        height: 50px;
+      }
+      svg:last-child {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
   }
 
-  .left {
-    ul {
-      @include flex($jc: space-between);
-      li {
-        margin: 0 16px;
-        @include mobile {
-          margin: 0;
-        }
-        a {
-          text-decoration: underline;
-          color: $primary-color;
-        }
-      }
-    }
-    .copyright {
-      margin: 16px 0;
-      padding: 0 16px;
+  .cc-container {
+    margin-top: 90px;
+    @include flex($jc: space-between);
+    .copyright p {
+      color: #212353;
+      font-size: 12px;
       font-weight: 100;
-      color: #656769;
-      @include mobile {
-        padding: 0;
-      }
+      line-height: 180%;
+      letter-spacing: 0.12px;
     }
-  }
-
-  .right {
-    i {
-      font-size: 24px;
-      color: $primary-color;
+    .chat {
       cursor: pointer;
-      padding: 0 16px;
     }
   }
 }
