@@ -1,36 +1,17 @@
 import React from "react";
-import { useRoutes } from "react-router-dom";
-import Layout from "./layouts/Layout";
-import Authentication from "./layouts/Authentication";
-import Home from "./pages/Home/Home";
-import Login from "./pages/Login/Login";
-import Profile from "./pages/Profile/Profile";
+import { Link, useRoutes } from "react-router-dom";
+import CountUseReducer from "./pages/CountUseReducer/CountUseReducer";
+import ToDoApp from "./pages/ToDoApp/ToDoApp";
 
 const App = () => {
   const router = useRoutes([
     {
-      path: "/",
-      element: <Layout />,
-      children: [
-        {
-          path: "",
-          element: <Home />,
-        },
-      ],
+      path: "/count",
+      element: <CountUseReducer />,
     },
     {
-      path: "/login",
-      element: <Authentication />,
-      children: [
-        {
-          path: "",
-          element: <Login />,
-        },
-      ],
-    },
-    {
-      path: "/profile",
-      element: <Profile />,
+      path: "/to-do-app",
+      element: <ToDoApp />,
     },
   ]);
 
