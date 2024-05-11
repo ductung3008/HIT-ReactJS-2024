@@ -1,0 +1,19 @@
+@import "../../styles/mixins";
+
+.to-do-app {
+  @include flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  input {
+    width: 300px;
+    padding: 8px;
+  }
+  button {
+    margin: 8px 4px;
+    padding: 4px 8px;
+  }
+  li {
+    margin: 8px 0;
+  }
+}
