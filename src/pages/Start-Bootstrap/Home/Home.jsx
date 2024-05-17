@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.scss";
-import Banner from "../../components/Banner/Banner";
-import Feedback from "../../components/Feedback/Feedback";
-import slide1 from "../../assets/images/slide-1.jpg";
-import slide2 from "../../assets/images/slide-2.jpg";
-import slide3 from "../../assets/images/slide-3.jpg";
-import Button from "../../components/Button/Button";
+import Banner from "../../../components/Start-Bootstrap/Banner/Banner";
+import Feedback from "../../../components/Start-Bootstrap/Feedback/Feedback";
+import slide1 from "../../../assets/images/slide-1.jpg";
+import slide2 from "../../../assets/images/slide-2.jpg";
+import slide3 from "../../../assets/images/slide-3.jpg";
+import Button from "../../../components/Button/Button";
 
 const Home = () => {
   const navigate = useNavigate();

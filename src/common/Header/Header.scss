@@ -1,20 +1,24 @@
-@import "../../styles/mixins";
-@import "../../styles/variables";
+@import "../../styles/index.scss";
 
 header {
-  .container {
-    @include flex($jc: space-between);
-    padding: 48px 0;
-    width: $page-width;
-    margin: 0 auto;
-    transition: padding 200ms;
-  }
+  @include flex($jc: space-between);
   background-color: #fff;
   z-index: 9999;
+  padding: 0 40px;
+  height: 70px;
   position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  .btn {
-    margin-left: 32px;
+  .logo {
+    font-size: 32px;
+  }
+  .menu {
+    @include flex;
+    gap: 40px;
+    font-size: 20px;
+    i {
+      cursor: pointer;
+    }
   }
 }
