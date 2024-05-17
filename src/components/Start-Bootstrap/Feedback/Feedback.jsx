@@ -1,8 +1,8 @@
 import React from "react";
 import "./Feedback.scss";
-import fb1 from "../../assets/images/fb-1.jpg";
-import fb2 from "../../assets/images/fb-2.jpg";
-import fb3 from "../../assets/images/fb-3.jpg";
+import fb1 from "../../../assets/images/fb-1.jpg";
+import fb2 from "../../../assets/images/fb-2.jpg";
+import fb3 from "../../../assets/images/fb-3.jpg";
 
 const Feedback = () => {
   return (

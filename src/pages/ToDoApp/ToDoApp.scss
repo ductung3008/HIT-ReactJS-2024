@@ -1,19 +1,63 @@
-@import "../../styles/mixins";
+@import "../../styles/index.scss";
 
-.to-do-app {
-  @include flex;
+.app {
+  @include flex($jc: flex-start);
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
-  flex-direction: column;
+}
+
+.todo {
+  text-align: center;
+  height: 68%;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin-top: 100px;
+  padding: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  overflow: auto;
+  form {
+    @include flex;
+  }
   input {
-    width: 300px;
+    margin: 20px 0;
+    width: 220px;
     padding: 8px;
   }
   button {
-    margin: 8px 4px;
-    padding: 4px 8px;
+    min-width: 58px;
+    height: 100%;
+    padding: 8px;
+    display: inline-block;
   }
   li {
-    margin: 8px 0;
+    @include flex($jc: space-between);
+    padding: 12px;
+    color: white;
+    min-height: 44px;
+    &:nth-child(3n + 1) {
+      background-color: red;
+    }
+    &:nth-child(3n + 2) {
+      background-color: green;
+    }
+    &:nth-child(3n) {
+      background-color: blue;
+    }
+    div {
+      @include flex;
+    }
+    i {
+      @include flex;
+      width: 20px;
+      height: 20px;
+      margin: 0 4px;
+      cursor: pointer;
+    }
+  }
+
+  &.dark {
+    background-color: #1a1a1a;
+    color: white;
   }
 }

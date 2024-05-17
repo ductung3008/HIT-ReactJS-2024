@@ -1,0 +1,20 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+header {
+  .container {
+    @include flex($jc: space-between);
+    padding: 48px 0;
+    width: $page-width;
+    margin: 0 auto;
+    transition: padding 200ms;
+  }
+  background-color: #fff;
+  z-index: 9999;
+  position: fixed;
+  left: 0;
+  right: 0;
+  .btn {
+    margin-left: 32px;
+  }
+}

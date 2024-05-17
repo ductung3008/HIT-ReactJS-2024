@@ -1,20 +1,38 @@
 import React from "react";
-import { Link, Routes, Route } from "react-router-dom";
-import CountUseReducer from "./pages/CountUseReducer/CountUseReducer";
-import ToDoApp from "./pages/ToDoApp/ToDoApp";
+import { useRoutes } from "react-router-dom";
+import Layout from "./layouts/Layout";
+import Home from "./pages/Home/Home";
+import StartBootstrap from "./pages/Start-Bootstrap/Home/Home";
+import TodoApp from "./pages/ToDoApp/ToDoApp";
+import Login from "./pages/LoginV1/LoginV1";
 
 const App = () => {
-  return (
-    <>
-      <Link to="/count">Count</Link>
-      <br />
-      <Link to="/to-do-app">To Do App</Link>
-      <Routes>
-        <Route path="/count" element={<CountUseReducer></CountUseReducer>} />
-        <Route path="/to-do-app" element={<ToDoApp></ToDoApp>} />
-      </Routes>
-    </>
-  );
+  const router = useRoutes([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "/start-bootstrap",
+          element: <StartBootstrap />,
+        },
+        {
+          path: "/todo-app",
+          element: <TodoApp />,
+        },
+      ],
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+  ]);
+
+  return router;
 };
 
 export default App;
